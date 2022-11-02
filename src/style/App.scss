@@ -1,0 +1,396 @@
+@import url("./squartiqa_4f.css");
+@import url("./squartiqa_4f_ultralight.css");
+@import url("./aeroport_medium.css");
+
+
+@mixin no-select {
+  pointer-events: none;
+  user-select: none;
+}
+
+$b: .055vh;
+$w: .055vw;
+@function c($value) {
+  @return $value * $b;
+}
+@function cw($value) {
+  @return $value * $w;
+}
+
+$inputBack: #1E1E1E;
+$inputBorder: #FFFFFF;
+$inputColor: #FFFFFF;
+$caption: #BEBEBE;
+$mainLabel: #B42A40;
+
+.App {
+  text-align: center;
+}
+
+.App-header, #text88, #mainbox, #flexbox  {
+  display: flex;
+}
+
+
+
+#root {
+  border: 32px solid #B42A40;
+  max-width: 100vw;
+  //min-height: calc(100vh - 64px);
+  //max-height: calc(110vh - 64px);
+}
+
+@media screen and (max-width: 1400px) {
+  #mainbox {
+    max-width: fit-content !important;
+  }
+  .sideMenu {
+    display: none;
+  }
+}
+@media screen and (max-height: 1080px) {
+  .CyberLogo {
+    max-height:100px;
+    img {
+      height: 12vh;
+    }
+  }
+}
+
+.CyberLogo {
+  margin-top: 0px;
+  text-align: left;
+  justify-items: left;
+  vertical-align: bottom;
+
+  
+
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+
+  img {
+    max-width: c(650);
+    max-height: c(250);
+  }
+}
+
+#mainbox {
+  display: grid;
+  padding: c(64);
+  padding-top:16px;
+  max-width: cw(680);
+  padding-right: 0px !important;
+  padding-bottom: 8px;
+  min-width: 45vmax;
+  flex-direction: column;
+  justify-self: self-end;
+}
+
+
+
+.formBox {
+  text-align: left;
+  padding: 16px 0;
+  max-width: 100%;
+  
+  #formText {
+    color: $caption;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-items: left;
+    text-align: left;
+
+  }
+
+  .loginForm {
+    margin: 16px  0 08px;
+  } 
+    
+  
+  .inputBox {
+    margin-right: cw(60);
+    border: 1px solid $inputBorder;
+    padding: 8px;
+    margin-bottom:15px;
+    background-color: $inputBack;
+
+    input[type="text"], input[type="text"]:focus,
+    input[type="password"], input[type="password"]:focus {
+      min-width: cw(290);
+      min-height: c(60);
+      font-size: calc(c(60) - 12px);
+      color: $inputColor;
+      border: none;
+      background-color: $inputBack;
+      outline: 0;
+
+      &::placeholder, &::-moz-placeholder, 
+      &::-webkit-input-placeholder {
+        color: $inputColor;
+        opacity: 1;
+      }
+
+    }
+
+    .psw-icon {
+      width: 0;
+      height: 0;
+      position: relative;
+    }
+    .psw-btn {
+      top:-24px;
+      left:calc(100% - 22px - 4px);
+      cursor: pointer;
+    }
+    .psw-rq {
+      top: -26px;
+      left: calc(100% + 13px + 5px)
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    //min-width: c(150);
+    max-height: c(250);
+    padding-top: 30px;
+    max-width: none;//cw(290) * 3;
+    //width: cw(290) * 2;
+  
+
+    .btn {
+      font-size: 24px;
+      font-family: 'Squartiqa 4F';
+      line-height: 28px;
+      text-align: center;
+      background: none;
+      min-width: calc(cw(290) + 20px);
+      mix-blend-mode: normal;
+      border: 4px solid $mainLabel;
+      color: $mainLabel;
+      box-sizing: border-box;
+      //width:100%;
+      cursor: pointer;
+      height: fit-content;
+      //text-align: center;
+      padding: c(30) 0;
+      margin-right: cw(60);
+      transition: filter 100ms linear;
+
+      &[data-active] {
+        height: auto;
+        border: none;
+        color: $inputColor;
+        background-image: url("../../public/btn_bg.png");
+        background-position: 0 calc(50% - 78px);
+
+        &:hover {
+          filter: contrast(120%);
+        }
+      }
+      &:hover {
+        filter: contrast(140%);
+      }
+      
+    }
+
+  }
+
+}
+.policyCheckbox {
+  user-select: none;
+  padding: 8px 5px 0px 0;
+  
+  input[type=checkbox] {
+    //-moz-appearance:none;
+    //-webkit-appearance:none;
+    //-o-appearance:none;
+    outline: none;
+    //content: none;	
+  }
+}
+
+
+.kbLayoutMain {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+
+  .kbTitle {
+    text-align: left;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 33px;
+  }
+
+  .kbLayoutBtns {
+    display: flex;
+    flex-direction: row;
+    margin-top: 6px;
+
+    .kbBtn {
+      
+      min-width: fit-content;
+      min-height: fit-content;
+      padding: 10px 32px;
+      background: #0E1821;
+      .kbFlag {
+        opacity: 0.2;
+        background: #000;
+      }
+
+      &[data-selected] {
+        background: #1D3449;
+
+        .kbFlag {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .kbHelper {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+
+    .kbCaption {
+      text-align: left;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 25px;
+      max-width:50%;
+      color: #5C5C5C;
+    }
+    .kbAltShift {
+      max-width:25%;
+    }
+  }
+}
+
+
+.appAd {
+  max-width: 90%;
+}
+
+
+
+#flexbox {
+  background: url("../../public/bg_pattern.jpg");
+  background-size: cover;
+
+  min-height: calc(100vh - 64px);
+  flex-direction: row;
+}
+
+// #zone {
+//   font-size: 16px;
+//   line-height: normal;
+//   margin: 0 c(30) c(30) 0;
+// }
+
+.sideMenu {
+  @include no-select;
+  justify-content: space-between;
+  text-align: flex-end;
+  flex-direction: column;
+  span {
+    font-family: 'Squartiqa 4F UltraLight';
+    font-size: calc(.055vmax * 565);
+    line-height: 697px;
+    text-align: right;
+    color: #B42A40;
+  }
+
+  .zoneWidget {
+    margin-top: c(80);
+    margin-right: c(150);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    //padding: 18px 32px;
+    //margin: 30px;
+    font-size: 24px;
+
+    div {
+      padding: 12px 32px;
+      max-height: c(180);
+    }
+  
+    .zoneFirst {
+      font-style: normal;
+      font-weight: 500;
+      color: $caption;
+      text-transform: uppercase;
+      line-height: 33px;
+      padding-top: c(35);
+      overflow: none;
+
+
+      display: table-cell;
+      text-align: right;
+      color: $caption;
+      background-color: #1D2731;
+      vertical-align: middle;
+    }
+    .zoneSecond {
+      font-family: "Squartiqa 4F";
+      font-weight: bold;
+      font-size: 40px;
+      line-height: 47px;
+      color: $mainLabel;
+      background-color: #161D24;
+    }
+  }
+}
+
+.App-header {
+  //margin: 32px;
+  background-color: #282c34;
+  min-height: calc(100vh - 64px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.requiredText {
+  display: flex;
+  flex-direction: row;
+  margin-top:-10px;
+  color: #CA7B34;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  
+  * {
+    margin-right: 2px;
+  }
+}
+
+* {
+  font-family: 'Aeroport';
+  font-style: normal;
+  font-weight: 500;
+  //text-transform: uppercase;
+  color: white;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

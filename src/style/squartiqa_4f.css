@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Squartiqa 4F';
+	src: url('./fonts/squartiqa_4f.eot'); /* IE 9 Compatibility Mode */
+	src: url('./fonts/squartiqa_4f.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('./fonts/squartiqa_4f.woff2') format('woff2'), /* Super Modern Browsers */
+		url('./fonts/squartiqa_4f.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('./fonts/squartiqa_4f.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('./fonts/squartiqa_4f.svg#squartiqa_4f') format('svg'); /* Chrome < 4, Legacy iOS */
+}
